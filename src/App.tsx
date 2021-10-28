@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import UseFetchApi from "./components/useFetchApi";
+import { ChangeText } from "./components/simpleState";
+import UseStateCounter from "./components/useStateCounter";
+import UseEffectSimple from "./components/useEffectSimple";
+import TextBlinker from "./components/textBlinker";
+import FromControlledSubmission from "./components/formControlledSubmission/formControlledSubmission";
+import FormNormalSubmission from "./components/formNormalSubmission/formNormalSubmission";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <UseFetchApi />
+            <ChangeText />
+            <UseStateCounter />
+            <UseEffectSimple />
+            <TextBlinker />
+            <FromControlledSubmission />
+            <FormNormalSubmission />
+        </div>
+    );
 }
-
 export default App;
