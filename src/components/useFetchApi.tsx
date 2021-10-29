@@ -2,7 +2,7 @@
 import { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 
-let strUrl: any = "http://localhost/personal/public/api/accounts";
+let strUrl: any = "http://localhost/slimapi/public/api/accounts";
 let getDataOut: any;
 const getUsersFromDB = async () => {
     // Waited for Response
@@ -17,8 +17,8 @@ const UseFetchApi = () => {
     let promiseObj: any = getUsersFromDB();
     promiseObj
         .then((arrData: any) => {
-            for (let x of arrData) {
-                getDataOut += `<p>Name: ${x.name} Email: ${x.email} User Name:${x.username}</p>`;
+            for (let row of arrData) {
+                getDataOut += `<p>Name: ${row.name} Email: ${row.email} User Name:${row.user_name}</p>`;
             }
             return getDataOut;
         })

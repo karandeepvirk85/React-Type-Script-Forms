@@ -5,7 +5,7 @@ import postDataToApi from "../postDataToAPI";
 const FormElement: any = () => {
     const [formObj, setValue] = useState<initialFormObject>(Object);
     let postObject: any = {};
-    let strPostUrl: string = "http://";
+    let strPostUrl: string = "http://localhost/slimapi/public/api/account/add";
     const handleSubmit = (e) => {
         e.preventDefault();
         if (Object.keys(formObj).length === 4) {

@@ -3,7 +3,13 @@ interface postDataInterface {
     apiUrlToPost: string;
 }
 // Post Data
-function postDataToApi(allArgs: postDataInterface) {
-    console.log(allArgs);
-}
+const postDataToApi = async (allArgs: postDataInterface) => {
+    const objPost: any = {
+        method: "post",
+        body: JSON.stringify(allArgs.formObject),
+    };
+
+    let strResponse: any = await fetch(allArgs.apiUrlToPost, objPost);
+    console.log(strResponse);
+};
 export default postDataToApi;
