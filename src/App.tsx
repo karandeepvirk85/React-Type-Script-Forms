@@ -5,6 +5,7 @@ import UseEffectSimple from "./components/useEffectSimple";
 import TextBlinker from "./components/textBlinker";
 import FromControlledSubmission from "./components/formControlledSubmission/formControlledSubmission";
 import FormNormalSubmission from "./components/formNormalSubmission/formNormalSubmission";
+import { UseRefSimple } from "./components/useRefSimple";
 function App() {
     return (
         <div className="App">
@@ -15,6 +16,7 @@ function App() {
             <TextBlinker />
             <FromControlledSubmission />
             <FormNormalSubmission />
+            <UseRefSimple />
         </div>
     );
 }
