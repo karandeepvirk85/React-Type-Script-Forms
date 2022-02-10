@@ -2,7 +2,7 @@
 import { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 
-let strUrl: any = "http://localhost/slimapi/public/api/accounts";
+let strUrl: any = "http://localhost/phpSlimApi/public/api/accounts";
 let getDataOut: any;
 const getUsersFromDB = async () => {
     // Waited for Response
@@ -16,20 +16,22 @@ const UseFetchApi = () => {
     // Resolved Promise
     let promiseObj: any = getUsersFromDB();
     promiseObj
-        .then((arrData: any) => {
-            for (let row of arrData) {
-                getDataOut += `<p>Name: ${row.name} Email: ${row.email} User Name:${row.user_name}</p>`;
-            }
-            return getDataOut;
+        .then((data: any) => {
+            return data.map((items:any,index:any) =>{
+                return(
+                    <p>Name: {items.name} Email: {items.email} User Name:{items.user_name}</p>
+                )
+            });
         })
-        .then((getDataOut: any) => {
-            if (getDataOut.length > 0) {
+        .then((data: any) => {
+            if (data.length > 0) {
+                getDataOut = data;
                 setNameState(true);
             }
         });
 
     return (
-        <p>{allNamesState ? ReactHtmlParser(getDataOut) : "Not Received"}</p>
+        <p>{allNamesState ? getDataOut : "Not Received"}</p>
     );
 };
 
